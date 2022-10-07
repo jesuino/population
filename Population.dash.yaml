@@ -1,0 +1,33 @@
+datasets:
+    - uuid: population
+      content: >-
+          [
+              ["Brazil", 212],
+              ["US", 300],
+              ["China", 1200],
+              ["Argentina", 80]
+          ]
+pages:
+    - components:
+          - html: "<p>Population</p> <hr />"
+            properties:
+                margin-left: 10px
+                font-size: xx-large
+          - settings:
+                component: echarts
+                external:
+                    width: 100%
+                    height: 350px
+                echarts:
+                    series:
+                        type: bar
+                lookup:
+                    uuid: population
+                    group:
+                        - columnGroup:
+                              source: Column 0
+                          functions:
+                              - source: Column 0
+                                column: Country
+                              - source: Column 1
+                                column: Population (Million)
